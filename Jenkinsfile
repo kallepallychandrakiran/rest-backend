@@ -14,5 +14,8 @@ pipeline {
                 echo "MAVEN BUILD COMPLETED"
             }
         }
+        stage("Build Docker Image"){
+
+        }
     }
 }

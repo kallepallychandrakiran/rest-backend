@@ -68,6 +68,6 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<finalName>rest-backend</finalName>
 	</build>
-
 </project>
