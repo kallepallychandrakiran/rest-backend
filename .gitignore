@@ -1,5 +1,10 @@
 # Ignore Maven target directory
-**/target/
+# Ignore all files under the target directory
+/target/
+
+# Alternatively, if you want to ignore only the specific file:
+target/classes/META-INF/maven/ck/rest-backend/pom.properties
+
 
 # Ignore IDE specific files
 /.idea/
