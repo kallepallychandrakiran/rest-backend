@@ -9,6 +9,7 @@ pipeline {
             steps {
                 checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/kallepallychandrakiran/rest-backend']])
                 echo "GIT BRANCH CHECKED_OUT"
+                sh "pwd"
                 sh "mvn clean install"
                 echo "MAVEN BUILD COMPLETED"
             }
