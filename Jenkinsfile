@@ -15,6 +15,11 @@ pipeline {
             }
         }
         stage("Build Docker Image"){
+			steps{
+				script{
+					sh "docker build -t rest-backend-image/rest-backend ."
+				}
+			}
 
         }
     }
