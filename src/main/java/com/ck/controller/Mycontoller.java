@@ -8,7 +8,12 @@ public class Mycontoller {
 
 	@GetMapping("/hello")
 	public String sayHello() {
-		return "Hello World!";
+		return "Hello & Welcome to ChandraKiran.tech";
+	}
+
+	@GetMapping("/")
+	public String root() {
+		return sayHello();
 	}
 
 }
