@@ -14,6 +14,14 @@ pipeline {
                 echo "MAVEN BUILD COMPLETED"
             }
         }
+        stage("Run Spring Boot App"){
+			steps{
+				script{
+					sh "mvn spring-boot:run"
+				}
+			}
+
+        }
         stage("Build Docker Image"){
 			steps{
 				script{
