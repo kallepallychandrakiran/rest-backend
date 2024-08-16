@@ -14,23 +14,24 @@ pipeline {
                 echo "MAVEN BUILD COMPLETED"
             }
         }
-        stage("Run Spring Boot App"){
-			steps{
-				script{
-					timeout(time: 1, unit: 'MINUTES') {
-                sh "mvn spring-boot:run"
+        stage("Build Docker Image") {
+            steps {
+                script {
+                    sh "docker build -t rest-backend-image/rest-backend ."
+                }
             }
-				}
-			}
-
         }
-        stage("Build Docker Image"){
-			steps{
-				script{
-					sh "docker build -t rest-backend-image/rest-backend ."
-				}
-			}
+        stage("Run Docker Container") {
+            steps {
+                script {
+                    // Stop and remove any existing container using the same port
+                    sh "docker ps -q --filter 'name=rest-backend-container' | xargs -r docker stop"
+                    sh "docker ps -a -q --filter 'name=rest-backend-container' | xargs -r docker rm"
 
+                    // Run the new container on port 9999
+                    sh "docker run -d -p 9999:9999 --name rest-backend-container rest-backend-image/rest-backend"
+                }
+            }
         }
     }
 }
