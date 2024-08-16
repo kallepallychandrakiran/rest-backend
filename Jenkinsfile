@@ -17,7 +17,9 @@ pipeline {
         stage("Run Spring Boot App"){
 			steps{
 				script{
-					sh "mvn spring-boot:run"
+					timeout(time: 1, unit: 'MINUTES') {
+                sh "mvn spring-boot:run"
+            }
 				}
 			}
 
