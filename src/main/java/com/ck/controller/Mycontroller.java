@@ -4,16 +4,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class Mycontoller {
-
-	@GetMapping("/hello")
-	public String sayHello() {
-		return "Hello & Welcome to ChandraKiran.tech";
-	}
+public class Mycontroller {
 
 	@GetMapping("/")
-	public String root() {
-		return sayHello();
+	public String sayHello() {
+		return "Chandra Kiran Loves Saloni Vichare";
+	}
+
+	@GetMapping("/secured")
+	public String secured() {
+		return "You are authorised to access this end-point";
 	}
 
 }
