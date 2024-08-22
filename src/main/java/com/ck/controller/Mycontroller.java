@@ -8,7 +8,7 @@ public class Mycontroller {
 
 	@GetMapping("/")
 	public String sayHello() {
-		return "Chandra Kiran Loves Saloni Vichare";
+		return "Chandra Kiran.tech welcome page";
 	}
 
 	@GetMapping("/secured")
